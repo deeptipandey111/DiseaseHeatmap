@@ -1,0 +1,130 @@
+<html>
+<style>
+
+body
+
+{
+
+background-color:#b0c4de;
+
+}
+
+</style>
+<head>
+<script>
+function validateForm()
+{
+	var a=document.forms["myForm"]["dis"].value;
+	if(a==null||a=="")
+	{
+                alert("Disease field must not be empty");
+                location.reload(true);
+                return false;
+        }
+	if(document.myForm.deaths.checked||document.myForm.ppla.checked||document.myForm.pplc.checked)
+        {
+                var x=document.forms["myForm"]["dth"].value;
+        	var y=document.forms["myForm"]["pla"].value;
+        	var b=document.forms["myForm"]["plc"].value;
+        	if(document.myForm.deaths.checked)
+        	{
+			if(x==null||x=="")
+			{
+                		alert("Checked field must not be empty");
+                		location.reload(true);
+                		return false;
+			}
+			if(isNaN(x))
+			{
+				alert("Deaths must be an integer");
+                                location.reload(true);
+                                return false;
+                        }
+        	}
+		else
+		{
+			if(x==null||x==""){}
+			else
+			{
+				alert("Unchecked field must be empty");
+                                location.reload(true);
+                                return false;
+                        }
+		}
+		if(document.myForm.ppla.checked)
+                {
+                        if(y==null||y=="")
+                        {
+                                alert("Checked field must not be empty");
+                                location.reload(true);
+                                return false;
+                        }
+                        if(isNaN(y))
+                        {
+                                alert("People Affected must be an integer");
+                                location.reload(true);
+                                return false;
+                        }
+                }
+		else
+                {
+                        if(y==null||y==""){}
+                        else
+                        {
+                                alert("Unchecked field must be empty");
+                                location.reload(true);
+                                return false;
+                        }
+                }
+		if(document.myForm.pplc.checked)
+                {
+                        if(b==null||b=="")
+                        {
+                                alert("Checked field must not be empty");
+                                location.reload(true);
+                                return false;
+                        }
+                        if(isNaN(b))
+                        {
+                                alert("People Cured must be an integer");
+                                location.reload(true);
+                                return false;
+                        }
+                }
+		else
+                {
+                        if(b==null||b==""){}
+                        else
+                        {
+                                alert("Unchecked field must be empty");
+                                location.reload(true);
+                                return false;
+                        }
+                }
+        }
+        else
+        {
+                alert("You must check atleast one box");
+                location.reload(true);
+                return false;
+        }
+}
+</script>
+</head>
+<body>
+<center><u>Modify DisInfo</u></center>
+<p align="right"><a href="Home.html">Logout</a></p>
+<p align="right"><a href="Inside.html">Modify/Insert</a></p>
+<form name="myForm" action="DisMod.php" onsubmit="return validateForm()" method="post">
+	<br>Disease:<br><input type="text" name="dis"><br><br>
+	<b><label>Field you wish to change:</label></b>
+	<input type="checkbox" name="deaths" value="d">Deaths
+	<input type="checkbox" name="ppla" value="pa">People Affected
+	<input type="checkbox" name="pplc" value="pc">People Cured<br>
+	<br>Deaths:<br><input type="number" name="dth"><br>
+	People Affected:<br><input type="number" name="pla"><br>
+	People Cured:<br><input type="number" name="plc"><br><br>
+<input type="submit" value="Update">
+</form>
+</body>
+</html>

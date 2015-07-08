@@ -1,0 +1,48 @@
+<html>
+<style>
+
+body
+
+{
+
+background-color:#b0c4de;
+
+}
+
+</style>
+<head>
+<script>
+function validateForm()
+{
+	var z=document.forms["myForm"]["efftime"].value;
+	var a=document.forms["myForm"]["type"].value;
+	var x=document.forms["myForm"]["dis"].value;
+	var y=document.forms["myForm"]["nam"].value;
+	if(x==null||x==""||y==null||y==""||z==null||z==""||a==null||a=="")
+	{
+		alert("Input field must not be empty");
+		location.reload(true);
+		return false;
+	}
+	if (isNaN(z))
+	{
+		alert("Effective time must be an integer");
+		location.reload(true);
+		return false;
+  	}
+}
+</script>
+</head>
+<body>
+<center><u>New Medication</u></center><br>
+<p align="right"><a href="Home.html">Logout</a></p>
+<p align="right"><a href="Inside.html">Modify/Insert</a></p>
+<form name="myForm" action="InsertVac.php" onsubmit="return validateForm()" method="post">
+	For Disease:<br><input type="text" name="dis"><br>
+	Name:<br><input type="text" name="nam"><br>
+	Type:<br><input type="text" name="type"><br>
+	Duration(Days):<br><input type="text" name="efftime"><br>
+<br><input type="submit" value="Insert">
+</form>
+</body>
+</html>

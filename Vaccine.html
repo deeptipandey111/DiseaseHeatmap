@@ -1,0 +1,36 @@
+<html>
+<style>
+
+body
+
+{
+
+background-color:#b0c4de;
+
+}
+
+</style>
+<head>
+<script>
+function validateForm()
+{
+        var a=document.forms["myForm"]["dis"].value;
+        if(a==null||a=="")
+        {
+                alert("Disease field must not be empty");
+                location.reload(true);
+                return false;
+        }
+}
+</script>
+</head>
+<body>
+Enter the Name of the Disease:
+<p align="right"><a href="Home.html">Home</a></p>
+<form name="myForm" action="RetrieveVac.php" onsubmit="return validateForm()" method="post">
+        <br><input type="text" name="dis"><br>
+<br><input type="submit" value="Submit">
+</form>
+</body>
+</html>
+

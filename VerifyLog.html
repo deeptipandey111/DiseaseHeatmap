@@ -1,0 +1,45 @@
+<html>
+<style>
+
+body
+
+{
+
+background-color:#b0c4de;
+
+}
+
+</style>
+<head>
+<script>
+function validateForm()
+{
+	var a=document.forms["myForm"]["uname"].value;
+	if(a==null||a=="")
+	{
+		alert("Username field must not be empty");
+		location.reload(true);
+		return false;
+	}
+	var x=document.forms["myForm"]["pass"].value;
+	if(x==null||x=="")
+	{
+		alert("Password field must not be empty");
+		location.reload(true);
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<center><u>Login</u>
+<p align="right"><a href="Home.html">Home</a></p><br><br><br><br>
+<form name="myForm" action="login.php" onsubmit="return validateForm()" method="post">
+<div style="background-color:#B080FF;background-position:left;height:300px;width:350px;opacity:.65">
+	<br><br><br><br>Username:<br><input type="text" name="uname"><br>
+	<br>Password:<br><input type="password" name="pass"><br>
+<br><input type="submit" value="Login"></center>
+</div>
+</form>
+</body>
+</html>

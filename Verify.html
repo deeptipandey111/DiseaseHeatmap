@@ -1,0 +1,61 @@
+<html>
+<style>
+
+body
+
+{
+
+background-color:#b0c4de;
+
+}
+
+</style>
+<head>
+<script>
+function validateForm()
+{
+	var z=document.forms["myForm"]["key"].value;
+        if(z!="1234")
+        {
+                alert("Key does not match.");
+                location.reload(true);
+                return false;
+        }
+	var a=document.forms["myForm"]["uname"].value;
+	if(a==null||a=="")
+	{
+		alert("Username field must not be empty");
+		location.reload(true);
+		return false;
+	}
+	var x=document.forms["myForm"]["pass"].value;
+	var y=document.forms["myForm"]["conpass"].value;
+	if(x==null||x==""||y==null||y=="")
+	{
+		alert("Password field must not be empty");
+		location.reload(true);
+		return false;
+	}
+	if (x!=y)
+	{
+		alert("Passwords dont match.");
+		location.reload(true);
+		return false;
+  	}
+}
+</script>
+</head>
+<body>
+<center><u>Create your Account</u>
+<p align="right"><a href="Home.html">Home</a></p>
+<form name="myForm" action="insert.php" onsubmit="return validateForm()" method="post">
+	<br><br><br>
+	<div style="background-color:#B080FF;background-position:left;height:375px;width:350px;opacity:.65">
+	<br><br><br>Username:<br><input type="text" name="uname"><br>
+	<br>Password:<br><input type="password" name="pass"><br>
+	<br>Confirm Password:<br><input type="password" name="conpass"><br>
+	<br>Admin Key:<br><input type="password" name="key"><br>
+<br><input type="submit" value="Register">
+</form>
+</body>
+</html>

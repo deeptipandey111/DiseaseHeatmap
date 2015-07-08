@@ -1,0 +1,38 @@
+<html>
+<style>
+
+body
+
+{
+
+background-color:#b0c4de;
+
+}
+
+</style>
+<head>
+<script>
+function validateForm()
+{
+	var a=document.forms["myForm"]["dis"].value;
+	var x=document.forms["myForm"]["med"].value;
+	if(a==""||a==null||x==null||x=="")
+	{
+		alert("Input field must not be empty");
+		location.reload(true);
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<center><u>Delete Medication Available</u></center><br><br>
+<p align="right"><a href="Home.html">Logout</a></p>
+<p align="right"><a href="Inside.html">Modify/Insert</a></p>
+<form name="myForm" action="VacDel.php" onsubmit="return validateForm()" method="post">
+	Disease:<br><input type="text" name="dis"><br>
+	Scientific name of the Medicine:<br><input type="text" name="med"><br>
+<br><input type="submit" value="Delete">
+</form>
+</body>
+</html>

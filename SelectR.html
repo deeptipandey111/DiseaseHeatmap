@@ -1,0 +1,52 @@
+<html>
+<style>
+
+body
+
+{
+
+background-color:#b0c4de;
+
+}
+
+</style>
+<head>
+<script>
+function validateForm()
+{
+	var a=document.forms["myForm"]["country"].value;
+	if(a==null||a=="")
+	{
+		alert("Country field must not be empty");
+		location.reload(true);
+		return false;
+	}
+	var x=document.forms["myForm"]["state"].value;
+	if(x==null||x=="")
+	{
+		alert("State field must not be empty");
+		location.reload(true);
+		return false;
+	}
+	var x=document.forms["myForm"]["city"].value;
+        if(x==null||x=="")
+        {
+                alert("City field must not be empty");
+                location.reload(true);
+                return false;
+        }
+
+}
+</script>
+</head>
+<body>
+Enter required details about the place
+<p align="right"><a href="Home.html">Home</a></p><br><br>
+<form name="myForm" action="RetrieveRegion.php" onsubmit="return validateForm()" method="post">
+	Country:<br><input type="text" name="country"><br>
+	State:<br><input type="text" name="state"><br>
+	City:<br><input type="text" name="city"><br>
+<br><input type="submit" value="Submit">
+</form>
+</body>
+</html>

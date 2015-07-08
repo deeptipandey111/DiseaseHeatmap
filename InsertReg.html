@@ -1,0 +1,52 @@
+<html>
+<style>
+
+body
+
+{
+
+background-color:#b0c4de;
+
+}
+
+</style>
+<head>
+<script>
+function validateForm()
+{
+	var z=document.forms["myForm"]["dis"].value;
+	var a=document.forms["myForm"]["cont"].value;
+	var x=document.forms["myForm"]["count"].value;
+	var y=document.forms["myForm"]["state"].value;
+	var b=document.forms["myForm"]["city"].value;
+	var c=document.forms["myForm"]["pop"].value;
+	if(x==null||x==""||y==null||y==""||z==null||z==""||a==null||a==""||b==null||b==""||c==""||c==null)
+	{
+		alert("Input field must not be empty");
+		location.reload(true);
+		return false;
+	}
+	if (isNaN(c))
+	{
+		alert("Population must be an integer");
+		location.reload(true);
+		return false;
+  	}
+}
+</script>
+</head>
+<body>
+<center><b>New Region Affected :(</b></center><br><br>
+<p align="right"><a href="Home.html">Logout</a></p>
+<p align="right"><a href="Inside.html">Modify/Insert</a></p>
+<form name="myForm" action="InsertReg.php" onsubmit="return validateForm()" method="post">
+	Disease:<br><input type="text" name="dis"><br>
+	Continent:<br><input type="text" name="cont"><br>
+	Country:<br><input type="text" name="count"><br>
+	State:<br><input type="text" name="state"><br>
+	City:<br><input type="text" name="city"><br>
+	Population:<br><input type="text" name="pop"><br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>

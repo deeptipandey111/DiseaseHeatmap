@@ -1,0 +1,62 @@
+<html>
+<style>
+
+body
+
+{
+
+background-color:#b0c4de;
+
+}
+
+</style>
+<head>
+<script>
+function validateForm()
+{
+	var z=document.forms["myForm"]["nam"].value;
+	var a=document.forms["myForm"]["type"].value;
+	var x=document.forms["myForm"]["size"].value;
+	var y=document.forms["myForm"]["rep"].value;
+	var b=document.forms["myForm"]["temp"].value;
+	if(x==null||x==""||y==null||y==""||z==null||z==""||a==null||a==""||b==null||b=="")
+	{
+		alert("Input field must not be empty");
+		location.reload(true);
+		return false;
+	}
+	if (isNaN(y))
+	{
+		alert("Reproduction rate must be an integer");
+		location.reload(true);
+		return false;
+  	}
+	if (isNaN(b))
+        {
+                alert("Temperature must be an integer");
+                location.reload(true);
+                return false;
+        }
+	if (isNaN(x))
+        {
+                alert("Size must be an integer");
+                location.reload(true);
+                return false;
+        }
+}
+</script>
+</head>
+<body>
+<center><u>New Carrier</u></center><br><br>
+<p align="right"><a href="Home.html">Logout</a></p>
+<p align="right"><a href="Inside.html">Modify/Insert</a></p>
+<form name="myForm" action="InsertCar.php" onsubmit="return validateForm()" method="post">
+	Name:<br><input type="text" name="nam"><br>
+	Size(nm):<br><input type="text" name="size"><br>
+	Type:<br><input type="text" name="type"><br>
+	Reproduction Rate(times/sec):<br><input type="text" name="rep"><br>
+	Ideal temperature(Celsius):<br><input type="text" name="temp"><br>
+<br><input type="submit" value="Insert">
+</form>
+</body>
+</html>

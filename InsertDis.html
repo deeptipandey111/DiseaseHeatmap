@@ -1,0 +1,115 @@
+<html>
+<style>
+
+body
+
+{
+
+background-color:#b0c4de;
+
+}
+
+</style>
+<head>
+<script>
+function validateForm()
+{
+	var z=document.forms["myForm"]["nam"].value;
+	var a=document.forms["myForm"]["ppla"].value;
+        var x=document.forms["myForm"]["deaths"].value;
+	var y=document.forms["myForm"]["cured"].value;
+	var b=document.forms["myForm"]["cnam"].value;
+	if(z==null||z==""||a==null||a==""||y==null||y==""||x==null||x==""||b==null||b=="")
+	{
+		alert("Input field must not be empty");
+		location.reload(true);
+		return false;
+	}
+	if (isNaN(a))
+	{
+		alert("People affected must be an integer");
+		location.reload(true);
+		return false;
+  	}
+	if (isNaN(x))
+        {
+                alert("Deaths must be an integer");
+                location.reload(true);
+                return false;
+        }
+	if (isNaN(y))
+        {
+                alert("People cured must be an integer");
+                location.reload(true);
+                return false;
+	} 
+	z=document.forms["myForm"]["cont"].value;
+        a=document.forms["myForm"]["count"].value;
+        x=document.forms["myForm"]["state"].value;
+        y=document.forms["myForm"]["city"].value;
+        b=document.forms["myForm"]["pop"].value;
+        if(x==null||x==""||y==null||y==""||z==null||z==""||a==null||a==""||b==null||b=="")
+        {
+                alert("Input field must not be empty");
+                location.reload(true);
+                return false;
+        }
+        if (isNaN(b))
+        {
+                alert("Population must be an integer");
+                location.reload(true);
+                return false;
+        }
+        z=document.forms["myForm"]["sym1"].value;
+        a=document.forms["myForm"]["sym2"].value;
+        x=document.forms["myForm"]["sym3"].value;
+        if((z==null||z=="")&&(a==null||a=="")&&(x==null||x==""))
+	{
+                alert("Atleast one symptom must be entered");
+                location.reload(true);
+                return false;
+        }
+	if(document.myForm.age0.checked||document.myForm.age2.checked||document.myForm.age10.checked||document.myForm.age25.checked||document.myForm.age60.checked)
+        {
+                return true;
+        }
+        else
+        {
+                alert("You must check atleast one box");
+                location.reload(true);
+                return false;
+        }
+}
+</script>
+</head>
+<body>
+<center><b>Insert new Disease :(</b></center><br><br>
+<p align="right"><a href="Home.html">Logout</a></p>
+<p align="right"><a href="Inside.html">Modify/Insert</a></p>
+<form name="myForm" action="InsertDis.php" onsubmit="return validateForm()" method="post">
+	<b><label>Information about the Disease:</label><br></b>
+	<br>Name:<br><input type="text" name="nam"><br>
+	People Affected:<br><input type="text" name="ppla"><br>
+	Deaths:<br><input type="text" name="deaths"><br>
+	People Cured:<br><input type="pplC" name="cured"><br>
+	Carrier Name:<br><input type="text" name="cnam"><br>
+	<br><b><label>Information about region affected by the Disease:</label><br></b>
+	<br>Continent:<br><input type="text" name="cont"><br>
+        Country:<br><input type="text" name="count"><br>
+        State:<br><input type="text" name="state"><br>
+        City:<br><input type="text" name="city"><br>
+        Population:<br><input type="text" name="pop"><br>
+	<br><b><label>3 major Symptoms:</label><br></b>
+	<br>Symptom 1:<br><input type="text" name="sym1"><br>
+        Symptom 2:<br><input type="text" name="sym2"><br>
+        Symptom 3:<br><input type="text" name="sym3"><br>
+	<br><b><label>Age group affected:</label></b>
+	<input type="checkbox" name="age0" value="A0_2">0-2
+	<input type="checkbox" name="age2" value="A2_10">2-10
+	<input type="checkbox" name="age10" value="A10_25">10-25
+	<input type="checkbox" name="age25" value="A25_60">25-60
+	<input type="checkbox" name="age60" value="A60P">60+
+<br><br><input type="submit" value="Submit">
+</form>
+</body>
+</html>
